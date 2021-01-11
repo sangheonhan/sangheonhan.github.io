@@ -23,10 +23,117 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Thu, 07 Jan 2021 10:04:00 &#43;0900</lastBuildDate>
+        <lastBuildDate>Tue, 12 Jan 2021 01:14:26 &#43;0900</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://sangheonhan.github.io/rss.xml" />
         
+        
+            <item>
+                <title>개발 도구 및 환경 소개</title>
+                <link>https://sangheonhan.github.io/%EA%B0%9C%EB%B0%9C-%EB%8F%84%EA%B5%AC-%EB%B0%8F-%ED%99%98%EA%B2%BD-%EC%86%8C%EA%B0%9C/</link>
+                <guid isPermaLink="true">https://sangheonhan.github.io/%EA%B0%9C%EB%B0%9C-%EB%8F%84%EA%B5%AC-%EB%B0%8F-%ED%99%98%EA%B2%BD-%EC%86%8C%EA%B0%9C/</guid>
+                <pubDate>Tue, 12 Jan 2021 01:04:00 &#43;0900</pubDate>
+                
+                    <author>han@sangheon.com (Sangheon Han)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description>&lt;h2 id=&#34;editor&#34;&gt;Editor&lt;/h2&gt;
+&lt;h3 id=&#34;vim&#34;&gt;Vim&lt;/h3&gt;
+&lt;p&gt;오랜 시간 함께 했고 지금도 함께 하고 있는 에디터입니다. 처음에는 vi였고, 어느샌가 &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt;으로 자연스럽게 바꾸었습니다. Sublime, Atom, Coda, NotePad++, EditPlus, UltraEdit를 써보기도 했지만 결국 Vim으로 돌아왔습니다.&lt;/p&gt;
+&lt;p&gt;현재는 &lt;code&gt;Vundle&lt;/code&gt; 플러그인 매니저를 사용해 여러 플러그인과 함께 사용하고 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Solarized - 솔라라이즈드 다크 테마&lt;/li&gt;
+&lt;li&gt;Syntastic - 문법 검사&lt;/li&gt;
+&lt;li&gt;The-NERD-tree - 트리 탐색기&lt;/li&gt;
+&lt;li&gt;ctrlp.vim - 퍼지 파인더&lt;/li&gt;
+&lt;li&gt;neocomplcache - 자동 완성&lt;/li&gt;
+&lt;li&gt;taglist.vim - 소스 코드 브라우저&lt;/li&gt;
+&lt;li&gt;vim-airline/vim-airline - 탭바/상태바&lt;/li&gt;
+&lt;li&gt;vim-airline/vim-airline-themes - vim-airline 테마&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vim은 터미널을 통해 주로 사용하지만,  &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;, &lt;a href=&#34;https://www.jetbrains.com/datagrip/&#34;&gt;DataGrip&lt;/a&gt;, &lt;a href=&#34;https://developer.apple.com/xcode/&#34;&gt;Xcode&lt;/a&gt;를 쓸 때도 플러그인을 통해 사용하기도 합니다.&lt;/p&gt;
+&lt;p&gt;Windows 10과 MacOS에서는 각각 &lt;a href=&#34;https://www.vim.org/download.php#pc&#34;&gt;gVim&lt;/a&gt;, &lt;a href=&#34;https://github.com/macvim-dev/macvim/releases&#34;&gt;MacVim&lt;/a&gt;을 쓰기도 합니다.&lt;/p&gt;
+&lt;h3 id=&#34;vs-code&#34;&gt;VS Code&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://sangheonhan.github.io/images/2021-01-05-visual-studio-code.png&#34; alt=&#34;Visual Studio Code&#34;&gt;&lt;/p&gt;
+&lt;p&gt;터미널에서 작업하는 것이 익숙하다 보니 Visual C++ 외에는 IDE를 거의 쓰지 않았습니다. 중간에 &lt;a href=&#34;https://www.eclipse.org/&#34;&gt;Eclipse&lt;/a&gt;와 &lt;a href=&#34;https://www.jetbrains.com/phpstorm/&#34;&gt;PhpStorm&lt;/a&gt;을 잠시 쓰기도 했지만 결국 Vim으로 다시 돌아왔습니다.&lt;/p&gt;
+&lt;p&gt;트위터를 통해 VS Code 알게되어 써보고 난 뒤에 매우 만족스러웠습니다. 그 이후 원격 작업이나 Docker 지원 등이 더 좋아지면서 현재는 Vim만큼 자주 쓰고 있습니다.&lt;/p&gt;
+&lt;h2 id=&#34;terminal-emulator&#34;&gt;Terminal Emulator&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://sangheonhan.github.io/images/2021-01-05-gnome-terminal-3.32-screenshot.png&#34; alt=&#34;GNOME Terminal&#34;&gt;&lt;/p&gt;
+&lt;p&gt;터미널은 항시 고민을 하게 만드는 도구였습니다. 지금도 그렇습니다. 예전에는 &lt;code&gt;xterm&lt;/code&gt;, &lt;code&gt;hanterm&lt;/code&gt;을 썼고, 그 뒤로 다양한 터미널 에뮬레이터를 써왔습니다.&lt;/p&gt;
+&lt;p&gt;한동안 Linux에서는 &lt;a href=&#34;https://gitlab.gnome.org/GNOME/gnome-terminal&#34;&gt;GNOME Terminal&lt;/a&gt;, Windows에서는 &lt;a href=&#34;https://github.com/iPuTTY/iPuTTY&#34;&gt;iPutty&lt;/a&gt;, MacOS에서는 &lt;a href=&#34;http://iterm.sourceforge.net/&#34;&gt;iTerm&lt;/a&gt;을 써오다, 최근 Windows 10에서는 &lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;Windows Terminal&lt;/a&gt;을 MacOS에서는 &lt;a href=&#34;https://iterm2.com/&#34;&gt;iTerm2&lt;/a&gt;를 쓰고 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sangheonhan.github.io/images/2021-01-05-iterm2.png&#34; alt=&#34;iTerm2&#34;&gt;
+평소 쓰는 OS가 여러 종류이다 보니 터미널 에뮬레이터를 통일시키기 위해 &lt;a href=&#34;https://hyper.is/&#34;&gt;Hyper&lt;/a&gt;, &lt;a href=&#34;https://sw.kovidgoyal.net/kitty/&#34;&gt;kitty&lt;/a&gt;, &lt;a href=&#34;https://github.com/alacritty/alacritty&#34;&gt;Alacritty&lt;/a&gt; 등도 시도를 해보았지만, 폰트/테마 지원 등의 이유로 아직까지 각 OS 마다 서로 다른 터미널 에뮬레이터를 쓰고 있습니다.&lt;/p&gt;
+&lt;p&gt;iOS, iPadOS에서는 &lt;a href=&#34;https://eugeny.github.io/terminus/&#34;&gt;Terminus&lt;/a&gt; 무료 버전을 사용 중입니다.&lt;/p&gt;
+&lt;h2 id=&#34;toolbox&#34;&gt;Toolbox&lt;/h2&gt;
+&lt;p&gt;개발 과정에서 유용하게 쓰고 있는 작은 도구가 몇개 있습니다.&lt;/p&gt;
+&lt;h3 id=&#34;ack&#34;&gt;Ack&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://beyondgrep.com/&#34;&gt;&lt;code&gt;ack&lt;/code&gt;&lt;/a&gt;는 소스 코드 검색에 특화된 &lt;code&gt;grep&lt;/code&gt;입니다. &lt;code&gt;grep&lt;/code&gt;을 쓸 때 보다 빠르고 정확하게 찾을 수 있어 매우 유용하게 사용 중입니다.&lt;/p&gt;
+&lt;h3 id=&#34;grip&#34;&gt;Grip&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/joeyespo/grip&#34;&gt;&lt;code&gt;grip&lt;/code&gt;&lt;/a&gt;은 &lt;a href=&#34;https://github.github.com/gfm/&#34;&gt;GitHub Flavored Markdown&lt;/a&gt; 형식의 마크다운(Markdown) 문서의 프리뷰(Preview)를 웹브라우저로 확인 해 볼 수 있게 해주는 도구입니다. 마크다운 문서를 에디터로 열어 바로 볼 수도 있지만, 비개발자가 보기에는 조금 난해해 보일 수도 있고 렌더링을 하는 것이 좀 더 예쁘기 때문에 &lt;a href=&#34;https://github.com/joeyespo/grip&#34;&gt;&lt;code&gt;grip&lt;/code&gt;&lt;/a&gt;으로 렌더링한 후 웹브라우저의 결과물을 저장하여 전달하고 있습니다.&lt;/p&gt;
+&lt;h3 id=&#34;apidoc&#34;&gt;ApiDoc&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://apidocjs.com/&#34;&gt;&lt;code&gt;apidoc&lt;/code&gt;&lt;/a&gt;은 RESTful API 사용법을 정리하여 사내 공유하기 위해 사용 중입니다. 다른 좋은 도구들도 많지만 다소 방대한 느낌이어서 작고 가벼우면서도 소스 코드 안에 주석으로 적는 &lt;a href=&#34;https://apidocjs.com/&#34;&gt;&lt;code&gt;apidoc&lt;/code&gt;&lt;/a&gt;을 선택하였습니다.&lt;/p&gt;
+&lt;h3 id=&#34;fzf&#34;&gt;fzf&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/junegunn/fzf&#34;&gt;&lt;code&gt;fzf&lt;/code&gt;&lt;/a&gt;는 CLI를 사용 할 때 유용한 파인더(finder)입니다. 기본적인 사용 방법만으로도 유용하게 사용 중입니다.&lt;/p&gt;
+&lt;h2 id=&#34;fonts&#34;&gt;Fonts&lt;/h2&gt;
+&lt;p&gt;DOS와 Windows 95 시절에는 &lt;a href=&#34;https://www.sandollcloud.com/font/Tlab/2161.html&#34;&gt;샘물체&lt;/a&gt;라는 폰트를 썼습니다. 그뒤로 한동안 Fixedsys와 Courier New를 섞어쓰다, 본격적으로 개발 환경을 리눅스로 옮기면서 Ubuntu Mono, Bitstream Vera Sans Mono를 사용 했습니다.&lt;/p&gt;
+&lt;p&gt;그 뒤로 Bitstream Vera Sans Mono Font와 맑은고딕을 합친 폰트를 꽤 오래 써왔지만 임의로 두 폰트를 합쳐서 만들었기에 &lt;a href=&#34;https://github.com/powerline/fonts&#34;&gt;Powerline fonts&lt;/a&gt;와 함께 사용하는데 어려움이 있어, 현재는 &lt;a href=&#34;https://github.com/powerline/fonts/tree/master/DejaVuSansMono&#34;&gt;DejaVu Sans Mono for Powerline&lt;/a&gt;를 주로 쓰면서 보조적으로 &lt;a href=&#34;https://www.google.co.kr/get/noto/&#34;&gt;Noto Sans Mono CJK KR&lt;/a&gt;을 사용 중입니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sangheonhan.github.io/images/2021-01-05-dejavu-sans-mono-for-powerline.png&#34; alt=&#34;DejaVu Sans Mono for Powerline&#34;&gt;&lt;/p&gt;
+&lt;p&gt;근래 터미널 에뮬레이터의 경우 Unicode에 없는 글자를 만나면 별도의 글꼴에서 해당 글자를 찾는 기능을 지원하는 경우가 많아서 Noto Sans 폰트를 통해 글자가 안 나오는 문제를 방지 할 수 있습니다.&lt;/p&gt;
+&lt;h2 id=&#34;shell&#34;&gt;Shell&lt;/h2&gt;
+&lt;p&gt;상당 기간 동안 &lt;code&gt;bash&lt;/code&gt;를 썼지만 MacOS 기본 셸이 &lt;code&gt;zsh&lt;/code&gt;로 바뀌면서 Windows(WSL)과 Ubuntu에서도 &lt;code&gt;zsh&lt;/code&gt;을 기본셸로 사용 중입니다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bash&lt;/code&gt;를 사용했을 때는 다수의 설정 파일들을 로그인 때 읽어들이도록 했고, 이를 관리하는 것이 다소 번거로웠습니다. &lt;code&gt;zsh&lt;/code&gt;를 쓰면서 &lt;a href=&#34;https://github.com/ohmyzsh/ohmyzsh&#34;&gt;Oh My Zsh&lt;/a&gt;를 통해 &lt;code&gt;.zshrc&lt;/code&gt; 파일 하나에 설정을 통합하여 관리하고 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sangheonhan.github.io/images/2021-01-05-oh-my-zsh.png&#34; alt=&#34;Oh My Zsh&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ohmyzsh/ohmyzsh&#34;&gt;Oh My Zsh&lt;/a&gt; 테마는 기본값인 &lt;code&gt;agnoster&lt;/code&gt;를 사용 중입니다. 다른 멋진 테마들도 많았지만 &lt;code&gt;agnoster&lt;/code&gt;로도 충분하다 느꼈기 때문입니다.&lt;/p&gt;
+&lt;h2 id=&#34;theme&#34;&gt;Theme&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://sangheonhan.github.io/images/2021-01-05-solarized.png&#34; alt=&#34;Solarized&#34;&gt;&lt;/p&gt;
+&lt;p&gt;예전에는 에디터나 IDE가 기본 제공하는 테마 중 하나를 선택하여 사용했지만 도구가 늘어나면서 통일감을 얻기 위해 &lt;a href=&#34;https://ethanschoonover.com/solarized/&#34;&gt;Solarized Dark&lt;/a&gt;를 사용 중입니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ethanschoonover.com/solarized/&#34;&gt;Solarized Dark&lt;/a&gt;는 에디터, 터미널 에뮬레이터, IDE 등에서 공식적으로 지원하는 경우가 많기도 하고, 비공식적인 패치도 많이 나와있어 테마 적용에 큰 어려움이 없습니다.&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://sangheonhan.github.io/tags/development/">development</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://sangheonhan.github.io/tags/tools/">tools</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://sangheonhan.github.io/tags/%EA%B0%9C%EB%B0%9C/">개발</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://sangheonhan.github.io/tags/%EB%8F%84%EA%B5%AC/">도구</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://sangheonhan.github.io/tags/%ED%99%98%EA%B2%BD/">환경</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Docker를 이용한 개발 환경 구축하기</title>
