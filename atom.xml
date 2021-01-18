@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">Minimalist Programmer</title>
     <subtitle type="html">Less is More Than Enough.</subtitle>
-    <updated>2021-01-13T16:44:15&#43;09:00</updated>
+    <updated>2021-01-18T15:24:46&#43;09:00</updated>
     <id>https://sangheonhan.github.io/</id>
     <link rel="alternate" type="text/html" href="https://sangheonhan.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://sangheonhan.github.io/atom.xml" />
@@ -15,7 +15,7 @@
                 <email>han@sangheon.com</email>
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
-    <generator uri="https://gohugo.io/" version="0.79.1">Hugo</generator>
+    <generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator>
         <entry>
             <title type="text">유니버설 링크 (Universal Links)</title>
             <link rel="alternate" type="text/html" href="https://sangheonhan.github.io/%EC%9C%A0%EB%8B%88%EB%B2%84%EC%84%A4-%EB%A7%81%ED%81%AC-universal-links/" />

@@ -10,7 +10,7 @@
         <title>Minimalist Programmer</title>
         <link>https://sangheonhan.github.io/</link>
         <description>Less is More Than Enough.</description>
-        <generator>Hugo 0.79.1 https://gohugo.io/</generator>
+        <generator>Hugo 0.80.0 https://gohugo.io/</generator>
         
             <language>en</language>
         
@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Wed, 13 Jan 2021 16:44:15 &#43;0900</lastBuildDate>
+        <lastBuildDate>Mon, 18 Jan 2021 15:24:46 &#43;0900</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://sangheonhan.github.io/rss.xml" />
         
