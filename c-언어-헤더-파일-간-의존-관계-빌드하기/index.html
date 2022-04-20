@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.80.0" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.97.3" /><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -14,11 +17,11 @@
 
     <title>C 언어 헤더 파일 간 의존 관계 빌드하기 | Minimalist Programmer</title>
 
-    <link rel="stylesheet" href="/css/meme.min.83415e9a4151976a03f2ed2e276a8d26d44fdcfbadf36b92529df76f7f59950b.css"/>
+    <link rel="stylesheet" href="/css/meme.min.99200e7581abdaa67ab8ccf4bfdabb982faa3301563408d29cd247b36f5e6ce4.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.9a603f74f04a6c5cb5f7ef7e1f574bb6f2ca39f761e2c5caa7a52eb621f0415c.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js" defer></script><script src="/js/meme.min.5c97fc5f5dfddb132058d87423c74f4500cef886b951d8274d86a34fa1f204b0.js"></script>
 
     
 
@@ -54,7 +57,7 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2013-10-08T11:20:55+00:00",
-        "dateModified": "2021-01-04T16:21:22+09:00",
+        "dateModified": "2022-04-20T10:08:56+09:00",
         "url": "https://sangheonhan.github.io/c-%EC%96%B8%EC%96%B4-%ED%97%A4%EB%8D%94-%ED%8C%8C%EC%9D%BC-%EA%B0%84-%EC%9D%98%EC%A1%B4-%EA%B4%80%EA%B3%84-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0/",
         "headline": "C 언어 헤더 파일 간 의존 관계 빌드하기",
         "description": "C 언어로 개발하다 보면 헤더 파일들끼리 의존성이 생겨나는데, 그 수가 적을 때는 수동으로 Makefile에 적어도 되지만 많아질 경우 수동으로 하기는 곤란해진다. 이럴 때 gccmakedep이라는 도구를 사용하면 자동으로 이런…",
@@ -70,7 +73,7 @@
             "url": "https://sangheonhan.github.io/",
             "name": "Sangheon Han"
         },
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "license": "[Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/)",
         "publisher": {
             "@type": "Organization",
             "name": "Minimalist Programmer",
@@ -105,11 +108,14 @@
 <meta property="og:locale" content="en" /><meta property="og:image" content="https://sangheonhan.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2013-10-08T11:20:55&#43;00:00" />
-    <meta property="article:modified_time" content="2021-01-04T16:21:22&#43;09:00" />
+    <meta property="article:modified_time" content="2022-04-20T10:08:56&#43;09:00" />
     
     <meta property="article:section" content="posts" />
 
 
+
+    
+    
 
     
 </head>
@@ -244,12 +250,12 @@
             
 
             <nav class="contents"></nav><div class="post-body e-content">
-              <p style="text-indent:0"><span class="drop-cap">C</span> 언어로 개발하다 보면 헤더 파일들끼리 의존성이 생겨나는데, 그 수가 적을 때는 수동으로 <code>Makefile</code>에 적어도 되지만 많아질 경우 수동으로 하기는 곤란해진다. 이럴 때 <code>gccmakedep</code>이라는 도구를 사용하면 자동으로 이런 헤더 사이 의존관계를 처리 할 수 있다. 최근에는 <code>gccmakedep</code>이 없는 경우가 보통이라 <code>gcc -M</code> 옵션을 사용하는 것을 더 추천한다.</p>
+                <p style="text-indent:0"><span class="drop-cap">C</span> 언어로 개발하다 보면 헤더 파일들끼리 의존성이 생겨나는데, 그 수가 적을 때는 수동으로 <code>Makefile</code>에 적어도 되지만 많아질 경우 수동으로 하기는 곤란해진다. 이럴 때 <code>gccmakedep</code>이라는 도구를 사용하면 자동으로 이런 헤더 사이 의존관계를 처리 할 수 있다. 최근에는 <code>gccmakedep</code>이 없는 경우가 보통이라 <code>gcc -M</code> 옵션을 사용하는 것을 더 추천한다.</p>
 <p>문제는 이렇게 만든 의존 관계를 <code>Makefile</code>에 포함시킬 경우 git 같은 도구에서 업데이트를 한 것으로 처리하기 때문에 깔끔하지 않다. 왜냐하면 의존 관계는 환경에 따라 얼마든지 다르기 때문에 각 컴파일 환경에 따라 매번 새로 갱신을 해야하는 내용이기 때문이다.</p>
 <p>이런 경우 의존 관계를 별도의 파일로 생성을 해서 처리하고, 해당 파일은 <code>.gitignore</code>에 포함시키면 깔끔하게 관리 할 수 있다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -257,13 +263,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">dep </span><span class="o">:</span>
-        gcc -M <span class="k">$(</span>INC<span class="k">)</span> <span class="k">$(</span>SRCS<span class="k">)</span> &gt; .depend
-
-<span class="err">ifeq</span> <span class="err">(.depend,</span><span class="k">$(</span><span class="nv">wildcard</span> .<span class="nv">depend</span><span class="k">)</span><span class="err">)</span>
-    <span class="err">include</span> <span class="err">.depend</span>
-<span class="err">endif</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nf">dep </span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        gcc -M <span class="k">$(</span>INC<span class="k">)</span> <span class="k">$(</span>SRCS<span class="k">)</span> &gt; .depend
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">ifeq</span> <span class="err">(.depend,</span><span class="k">$(</span><span class="nv">wildcard</span> .<span class="nv">depend</span><span class="k">)</span><span class="err">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">include</span> <span class="err">.depend</span>
+</span></span><span class="line"><span class="cl"><span class="err">endif</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div>
             </div>
@@ -280,7 +286,7 @@
                 
                 <li class="copyright-item link"><span class="copyright-item-text">Link</span>: <a href="/c-%EC%96%B8%EC%96%B4-%ED%97%A4%EB%8D%94-%ED%8C%8C%EC%9D%BC-%EA%B0%84-%EC%9D%98%EC%A1%B4-%EA%B4%80%EA%B3%84-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0/" target="_blank" rel="noopener">https://sangheonhan.github.io/c-언어-헤더-파일-간-의존-관계-빌드하기/</a></li>
             
-            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></li>
             
         </ul>
     
@@ -293,9 +299,9 @@
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2021-01-04 16:21:22 KST" style="cursor:help">
+        <span title="Updated @ 2022-04-20 10:08:56 KST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-01-04</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-01-04</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2022-04-20</text><text x="915" y="140" textLength="650" transform="scale(.1)">2022-04-20</text></g></svg>
         </span></div>
 
 
@@ -475,7 +481,7 @@
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;2002–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2002–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></div>
 
             
     
@@ -512,7 +518,10 @@
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

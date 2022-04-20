@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.80.0" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.97.3" /><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -14,11 +17,11 @@
 
     <title>동시성 문제를 해결하기 위한 MySQL 잠금 두가지 | Minimalist Programmer</title>
 
-    <link rel="stylesheet" href="/css/meme.min.83415e9a4151976a03f2ed2e276a8d26d44fdcfbadf36b92529df76f7f59950b.css"/>
+    <link rel="stylesheet" href="/css/meme.min.99200e7581abdaa67ab8ccf4bfdabb982faa3301563408d29cd247b36f5e6ce4.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.9a603f74f04a6c5cb5f7ef7e1f574bb6f2ca39f761e2c5caa7a52eb621f0415c.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js" defer></script><script src="/js/meme.min.5c97fc5f5dfddb132058d87423c74f4500cef886b951d8274d86a34fa1f204b0.js"></script>
 
     
 
@@ -54,13 +57,13 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2013-01-01T08:15:46+00:00",
-        "dateModified": "2021-01-04T16:19:32+09:00",
+        "dateModified": "2022-04-20T10:08:56+09:00",
         "url": "https://sangheonhan.github.io/%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-mysql-%EC%9E%A0%EA%B8%88-%EB%91%90%EA%B0%80%EC%A7%80/",
         "headline": "동시성 문제를 해결하기 위한 MySQL 잠금 두가지",
         "description": "InnoDB를 사용하면서 동시성(Concurrency)을 고려하지 않고 개발을 하면 큰 문제가 생길 수 있다. 아래에 게임 속 플레이어 간 골드를 넘기는 간단한 로직을 살펴보자. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 \u003c?php $pdo…",
         "inLanguage" : "en",
         "articleSection": "posts",
-        "wordCount":  1133 ,
+        "wordCount":  1113 ,
         "image": "https://sangheonhan.github.io/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -70,7 +73,7 @@
             "url": "https://sangheonhan.github.io/",
             "name": "Sangheon Han"
         },
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "license": "[Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/)",
         "publisher": {
             "@type": "Organization",
             "name": "Minimalist Programmer",
@@ -105,11 +108,14 @@
 <meta property="og:locale" content="en" /><meta property="og:image" content="https://sangheonhan.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2013-01-01T08:15:46&#43;00:00" />
-    <meta property="article:modified_time" content="2021-01-04T16:19:32&#43;09:00" />
+    <meta property="article:modified_time" content="2022-04-20T10:08:56&#43;09:00" />
     
     <meta property="article:section" content="posts" />
 
 
+
+    
+    
 
     
 </head>
@@ -231,7 +237,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1133</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1113</span>
     
     
         
@@ -244,10 +250,10 @@
             
 
             <nav class="contents"></nav><div class="post-body e-content">
-              <p style="text-indent:0"><span class="drop-cap">I</span>nnoDB를 사용하면서 동시성(Concurrency)을 고려하지 않고 개발을 하면 큰 문제가 생길 수 있다. 아래에 게임 속 플레이어 간 골드를 넘기는 간단한 로직을 살펴보자.</p>
+                <p style="text-indent:0"><span class="drop-cap">I</span>nnoDB를 사용하면서 동시성(Concurrency)을 고려하지 않고 개발을 하면 큰 문제가 생길 수 있다. 아래에 게임 속 플레이어 간 골드를 넘기는 간단한 로직을 살펴보자.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -269,47 +275,47 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">&#39;mysql:host=localhost;dbname=test&#39;</span><span class="p">,</span> <span class="s1">&#39;bookworm&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
-
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
-    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT gold FROM players WHERE id = 1&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;gold&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">echo</span> <span class="s2">&#34;Not enough gold.</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
-            <span class="k">exit</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UPDATE players SET gold = gold - 1000 WHERE id = 1&#39;</span><span class="p">);</span>
-    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UPDATE players SET gold = gold + 1000 WHERE id = 2&#39;</span><span class="p">);</span>
-    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">();</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">rollBack</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="nv">$pdo</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="err">
-</span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">&#39;mysql:host=localhost;dbname=test&#39;</span><span class="p">,</span> <span class="s1">&#39;bookworm&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT gold FROM players WHERE id = 1&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;gold&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">echo</span> <span class="s2">&#34;Not enough gold.</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">exit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UPDATE players SET gold = gold - 1000 WHERE id = 1&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;UPDATE players SET gold = gold + 1000 WHERE id = 2&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">rollBack</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>위 예제 코드는 한 플레이어의 골드를 다른 플레이어에게 주는 로직을 간략하게 한 것이다. 이 코드가 동시에 하나씩 실행되면 문제가 없지만, 그렇지 않은 경우 버그가 발생한다. 우선 한 플레이어의 골드가 옮기려는 1000 골드 이상인지 확인 후 1000 골드를 차감한다. 그 후 받을 플레이어의 골드를 1000 증가시킨 후 트랜잭션을 커밋한다. 만약 커밋이나 롤백을 하기 전에 다른 프로세스가 플레이어 1번의 골드를 조회하는 경우 차감 전의 원래 골드 값을 돌려받아 버그가 생기게 된다.</p>
 <p>이를 방지하기 위해서는 InnoDB의 기본 Isolation Level를 변경 할 수 있겠지만, 전체 쿼리 중 동시성을 고려해야 하는 경우가 많지 않다면 간단한 잠금 쿼리를 이용해서 처리 할 수 있다. InnoDB의 잠금은 두가지로 나눌 수 있다. 하나는 LOCK IN SHARE MODE와 다른 하나는 FOR UPDATE다. 이 둘의 용도는 약간 다르기 때문에 자신의 용도에 따라 신중히 선택을 해야 한다.</p>
 <p>LOCK IN SHARE MODE는 SELECT를 한 후에 트랜잭션이 끝날 때까지 해당 ROW 값이 변경되지 않을 것을 보장한다. 바꿔 말하면 해당 ROW를 UPDATE 하거나 DELETE 하려는 쿼리는 잠김 상태가 되어 트랜잭션이 끝날 때까지 대기하게 된다. 하지만, SELECT는 얼마든지 여러 세션이 동시에 수행하는 것이 가능하다. 기존 SELECT 쿼리문 맨 뒤에 LOCK IN SHARE MODE 문장을 추가하는 것만으로 사용이 가능하지만, 트랜잭션이 끝나기 전까지만 유효하므로 auto_commit을 꺼야 한다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">gold</span> <span class="k">FROM</span> <span class="n">players</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">LOCK</span> <span class="k">IN</span> <span class="k">SHARE</span> <span class="k">MODE</span><span class="p">;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">gold</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">players</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">LOCK</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">SHARE</span><span class="w"> </span><span class="k">MODE</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>FOR UPDATE는 SELECT로 가져 온 데이터를 변경을 하려고 할 때 사용한다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">gold</span> <span class="k">FROM</span> <span class="n">players</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">FOR</span> <span class="k">UPDATE</span><span class="p">;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">gold</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">players</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>FOR UPDATE를 SELECT를 가져온 이후로 해당 ROW에 대해 다른 세션의 SELECT, UPDATE, DELETE 등의 쿼리가 모두 잠김 상태가 된다. 즉, FOR UPDATE를 한 세션 외에 다른 세션들은 모두 해당 ROW에 접근을 할 수 없게 되고, 모두 대기 상태가 된다. FOR UPDATE도 LOCK IN SHARE MODE처럼 트랜잭션이 끝나는 시점에서 풀린다. 예로 든 플레이어 간 골드 이전과 같은 경우에 알맞는 잠금이다.</p>
 <p>웹 프로그래밍에서는 쓰레드 프로그래밍처럼 세밀히 동시성을 고민 할 필요는 없지만, 웹이 기본적으로 다수 사용자가 동시에 같은 데이터에 접근을 하는 환경이므로 이로 인해 주의가 필요하다. 이 외에 이런 문제를 해결하기 위해 트리거나 저장 프로시저 등을 이용 할 수 있지만, 최근 웹서비스 초기에는 MySQL을 단순 key-value 저장소처럼 사용하다 추후 서비스 성장에 맞춰 noSQL을 도입하는 경우가 종종 보이므로, RDBMS의 기능을 너무 적극적으로 활용하지 않는 것이 낫지 않을까 싶다.</p>
@@ -328,7 +334,7 @@
                 
                 <li class="copyright-item link"><span class="copyright-item-text">Link</span>: <a href="/%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-mysql-%EC%9E%A0%EA%B8%88-%EB%91%90%EA%B0%80%EC%A7%80/" target="_blank" rel="noopener">https://sangheonhan.github.io/동시성-문제를-해결하기-위한-mysql-잠금-두가지/</a></li>
             
-            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></li>
             
         </ul>
     
@@ -341,9 +347,9 @@
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2021-01-04 16:19:32 KST" style="cursor:help">
+        <span title="Updated @ 2022-04-20 10:08:56 KST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-01-04</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-01-04</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2022-04-20</text><text x="915" y="140" textLength="650" transform="scale(.1)">2022-04-20</text></g></svg>
         </span></div>
 
 
@@ -534,7 +540,7 @@
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;2002–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2002–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></div>
 
             
     
@@ -571,7 +577,10 @@
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

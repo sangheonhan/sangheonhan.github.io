@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.80.0" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.97.3" /><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -14,11 +17,11 @@
 
     <title>PHP 배열 세가지: Array, SplFixedArray, Judy Array | Minimalist Programmer</title>
 
-    <link rel="stylesheet" href="/css/meme.min.83415e9a4151976a03f2ed2e276a8d26d44fdcfbadf36b92529df76f7f59950b.css"/>
+    <link rel="stylesheet" href="/css/meme.min.99200e7581abdaa67ab8ccf4bfdabb982faa3301563408d29cd247b36f5e6ce4.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.9a603f74f04a6c5cb5f7ef7e1f574bb6f2ca39f761e2c5caa7a52eb621f0415c.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js" defer></script><script src="/js/meme.min.5c97fc5f5dfddb132058d87423c74f4500cef886b951d8274d86a34fa1f204b0.js"></script>
 
     
 
@@ -54,7 +57,7 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2017-07-12T12:33:08+00:00",
-        "dateModified": "2021-01-04T16:52:09+09:00",
+        "dateModified": "2022-04-20T10:08:56+09:00",
         "url": "https://sangheonhan.github.io/php-%EB%B0%B0%EC%97%B4-%EC%84%B8%EA%B0%80%EC%A7%80-array-splfixedarray-judy-array/",
         "headline": "PHP 배열 세가지: Array, SplFixedArray, Judy Array",
         "description": "PHP를 사용하면서 배열(Array)를 사용하지 않는 경우란 매우 드물겁니다. 배열(Array)와 사전(Dictionary)로 구별하는 Perl이나 Python과 달리 둘이 합쳐진 모양새를 가진 PHP 배열(이하 Arr…",
@@ -70,7 +73,7 @@
             "url": "https://sangheonhan.github.io/",
             "name": "Sangheon Han"
         },
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "license": "[Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/)",
         "publisher": {
             "@type": "Organization",
             "name": "Minimalist Programmer",
@@ -105,11 +108,14 @@
 <meta property="og:locale" content="en" /><meta property="og:image" content="https://sangheonhan.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2017-07-12T12:33:08&#43;00:00" />
-    <meta property="article:modified_time" content="2021-01-04T16:52:09&#43;09:00" />
+    <meta property="article:modified_time" content="2022-04-20T10:08:56&#43;09:00" />
     
     <meta property="article:section" content="posts" />
 
 
+
+    
+    
 
     
 </head>
@@ -250,26 +256,26 @@
     <li><a id="contents:마무리" href="#마무리">마무리</a></li>
   </ol>
 </nav><div class="post-body e-content">
-              <p style="text-indent:0"><span class="drop-cap">P</span>HP를 사용하면서 배열(Array)를 사용하지 않는 경우란 매우 드물겁니다. 배열(Array)와 사전(Dictionary)로 구별하는 Perl이나 Python과 달리 둘이 합쳐진 모양새를 가진 PHP 배열(이하 Array)은 PHP로 프로그래밍을 할 때 감초처럼 빠지지 않는 자료 구조일겁니다.</p>
+                <p style="text-indent:0"><span class="drop-cap">P</span>HP를 사용하면서 배열(Array)를 사용하지 않는 경우란 매우 드물겁니다. 배열(Array)와 사전(Dictionary)로 구별하는 Perl이나 Python과 달리 둘이 합쳐진 모양새를 가진 PHP 배열(이하 Array)은 PHP로 프로그래밍을 할 때 감초처럼 빠지지 않는 자료 구조일겁니다.</p>
 <p>하지만, Array가 언제나 최적의 도구는 아닙니다. 경우에 따라 다른 도구를 사용하는 것이 좀 더 나은 결과를 만들어 낼 수도 있습니다. 이 글에서는 Array와 비슷하지만 조금은 다른 또 다른 배열 형태의 자료 구조 두가지를 소개하려고 합니다.</p>
 <h2 id="splfixedarray"><a href="#splfixedarray" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:splfixedarray" class="headings">SplFixedArray</a></h2>
 <p>SPL(Stardard PHP Library)에는 다양한 자료 구조를 처리하는 클래스가 포함되어 있습니다. 그 중 하나가 <code>SplFixedArray입</code>니다. 이름에서 알 수 있듯 크기를 정하지 않고 사용하는 Array와 달리 인스턴스 생성시 고정된 크기를 정하는 클래스입니다.</p>
 <p>인스턴스를 생성해야 한다는 것을 제외하면 기본적인 사용법은 Array와 동일합니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$sfa</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SplFixedArray</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$sfa</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$i</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$sfa</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SplFixedArray</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$sfa</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>SplFixedArray</code>과 Array의 가장 큰 차이점은 생성시 지정한 크기를 벗어나는 경우 <code>RuntimeException</code>을 던진다는 것입니다. 만약 배열의 크기가 고정적이거나, 가변적으로 바뀌는 상황이 아니라면 <code>SplFixedArray</code>를 사용하는 것이 속도면에서 잇점이 있습니다. PHP 5.6 기준으로 읽기는 다소 빠른 수준이나 쓰기는 약 1.5 ~ 2배의 속도 차이가 있습니다.</p>
 <p>만약 SplFixedArray의 크기를 바꿔야 할 필요가 생긴다면 <code>SplFixedArray::setSize</code> 함수를 통해서 크기를 변경 할 수 있습니다. 다만, 현재 크기 보다 작은 크기로 바꾸는 경우 뒤 쪽 데이터가 잘려나가면, 큰 경우는 <code>null</code>이 뒤에 따라붙게 됩니다.</p>
@@ -278,19 +284,19 @@
 <p><code>Judy</code>는 Sparse Array에 특화된 배열입니다. 즉, 첨자가 연속적이지 않고 매우 드물게 나타나는 배열을 처리하는데 강점을 가집니다. Array와 비교하면 약 4 ~ 12배 정도의 성능 차이를 보입니다. 만약 다루려는 데이터가 Sparse Array 형태라면 <code>Judy</code>를 사용하는 것이 성능면에서 상당한 잇점이 있습니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="nv">$judy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Judy</span><span class="p">(</span><span class="nx">Judy</span><span class="o">::</span><span class="na">INT_TO_INT</span><span class="p">);</span>
-<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$judy</span><span class="p">[</span><span class="nv">$i</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$i</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$judy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Judy</span><span class="p">(</span><span class="nx">Judy</span><span class="o">::</span><span class="na">INT_TO_INT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$judy</span><span class="p">[</span><span class="nv">$i</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h2 id="마무리"><a href="#마무리" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:마무리" class="headings">마무리</a></h2>
 <p>보통의 경우 기본 Array로 충분하지만, 데이터의 갯수고 고정적이거나 첨자가 매우 드물게 떨어져있는 경우 <code>SplFixedArray</code>나 <code>Judy</code>를 사용해서 더 빠르게 처리 할 수 있습니다. 다만 <code>SplFixedArray</code>나 <code>Judy</code>의 경우 배열 관련 기본 내장 함수를 이용하는 것이 불가능하므로 이점을 미리 감안하여야 합니다.</p>
@@ -310,7 +316,7 @@
                 
                 <li class="copyright-item link"><span class="copyright-item-text">Link</span>: <a href="/php-%EB%B0%B0%EC%97%B4-%EC%84%B8%EA%B0%80%EC%A7%80-array-splfixedarray-judy-array/" target="_blank" rel="noopener">https://sangheonhan.github.io/php-배열-세가지-array-splfixedarray-judy-array/</a></li>
             
-            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></li>
             
         </ul>
     
@@ -323,9 +329,9 @@
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2021-01-04 16:52:09 KST" style="cursor:help">
+        <span title="Updated @ 2022-04-20 10:08:56 KST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-01-04</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-01-04</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2022-04-20</text><text x="915" y="140" textLength="650" transform="scale(.1)">2022-04-20</text></g></svg>
         </span></div>
 
 
@@ -556,7 +562,7 @@
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;2002–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2002–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></div>
 
             
     
@@ -593,7 +599,10 @@
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

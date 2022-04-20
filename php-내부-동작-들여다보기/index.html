@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.80.0" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.97.3" /><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -14,11 +17,11 @@
 
     <title>PHP 내부 동작 들여다보기 | Minimalist Programmer</title>
 
-    <link rel="stylesheet" href="/css/meme.min.83415e9a4151976a03f2ed2e276a8d26d44fdcfbadf36b92529df76f7f59950b.css"/>
+    <link rel="stylesheet" href="/css/meme.min.99200e7581abdaa67ab8ccf4bfdabb982faa3301563408d29cd247b36f5e6ce4.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.9a603f74f04a6c5cb5f7ef7e1f574bb6f2ca39f761e2c5caa7a52eb621f0415c.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js" defer></script><script src="/js/meme.min.5c97fc5f5dfddb132058d87423c74f4500cef886b951d8274d86a34fa1f204b0.js"></script>
 
     
 
@@ -54,7 +57,7 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2013-11-13T11:50:33+00:00",
-        "dateModified": "2021-01-04T16:37:19+09:00",
+        "dateModified": "2022-04-20T10:08:56+09:00",
         "url": "https://sangheonhan.github.io/php-%EB%82%B4%EB%B6%80-%EB%8F%99%EC%9E%91-%EB%93%A4%EC%97%AC%EB%8B%A4%EB%B3%B4%EA%B8%B0/",
         "headline": "PHP 내부 동작 들여다보기",
         "description": "gcc 컴파일러는 -S 옵션을 이용해 어셈블리어로 실제 C 언어의 내부 동작을 살펴 볼 수 있다. 하지만 PHP는 기본적으로 그러한 기능이 없으나, pthreads 모듈을 만든 Joe Watkins가 만든 explain이라는 모듈을 통해 어느 정도 PHP 내부 동작…",
@@ -70,7 +73,7 @@
             "url": "https://sangheonhan.github.io/",
             "name": "Sangheon Han"
         },
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "license": "[Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/)",
         "publisher": {
             "@type": "Organization",
             "name": "Minimalist Programmer",
@@ -106,11 +109,14 @@
 <meta property="og:locale" content="en" /><meta property="og:image" content="https://sangheonhan.github.io/images/2013-11-13-explain-echo.png" />
 <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2013-11-13T11:50:33&#43;00:00" />
-    <meta property="article:modified_time" content="2021-01-04T16:37:19&#43;09:00" />
+    <meta property="article:modified_time" content="2022-04-20T10:08:56&#43;09:00" />
     
     <meta property="article:section" content="posts" />
 
 
+
+    
+    
 
     
 </head>
@@ -245,11 +251,11 @@
             
 
             <nav class="contents"></nav><div class="post-body e-content">
-              <p style="text-indent:0"><span class="drop-cap">g</span>cc 컴파일러는 -S 옵션을 이용해 어셈블리어로 실제 C 언어의 내부 동작을 살펴 볼 수 있다. 하지만 PHP는 기본적으로 그러한 기능이 없으나, <code>pthreads</code> 모듈을 만든 <a href="https://github.com/krakjoe" target="_blank" rel="noopener">Joe Watkins</a>가 만든 <a href="https://github.com/krakjoe/explain" target="_blank" rel="noopener">explain</a>이라는 모듈을 통해 어느 정도 PHP 내부 동작을 파악 할 수 있게 됐다.</p>
+                <p style="text-indent:0"><span class="drop-cap">g</span>cc 컴파일러는 -S 옵션을 이용해 어셈블리어로 실제 C 언어의 내부 동작을 살펴 볼 수 있다. 하지만 PHP는 기본적으로 그러한 기능이 없으나, <code>pthreads</code> 모듈을 만든 <a href="https://github.com/krakjoe" target="_blank" rel="noopener">Joe Watkins</a>가 만든 <a href="https://github.com/krakjoe/explain" target="_blank" rel="noopener">explain</a>이라는 모듈을 통해 어느 정도 PHP 내부 동작을 파악 할 수 있게 됐다.</p>
 <p>일단 explain 확장 모듈을 설치해야 한다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -258,72 +264,72 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ wget https://github.com/krakjoe/explain/archive/master.tar.gz -O explain.tar.gz
-$ tar -xvzf explain.tar.gz
-$ <span class="nb">cd</span> explain-master
-$ phpize
-$ ./configure
-$ make
-$ make install
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ wget https://github.com/krakjoe/explain/archive/master.tar.gz -O explain.tar.gz
+</span></span><span class="line"><span class="cl">$ tar -xvzf explain.tar.gz
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> explain-master
+</span></span><span class="line"><span class="cl">$ phpize
+</span></span><span class="line"><span class="cl">$ ./configure
+</span></span><span class="line"><span class="cl">$ make
+</span></span><span class="line"><span class="cl">$ make install
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>설치 후 자신의 환경에 맞춰 explain.ini 파일을 만들고 아래 내용을 넣는다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">extension=explain.so
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">extension=explain.so
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>만약 phpbrew를 사용한다면 간단히 phpbrew ext enable explain 명령으로 모듈을 활성화 할 수 있다. 다음 명령으로 explain 모듈이 활성화 됐는지 확인한다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ php -m <span class="p">|</span> grep explain
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ php -m <span class="p">|</span> grep explain
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>explain 모듈 사용법은 explain-master 안에 있는 explain.php를 통해 타겟 php 파일 또는 디렉토리를 지정하면 된다.</p>
 <p>적당한 디렉토리를 하나 만들고 예제로 쓸 두 파일을 만든다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">echo</span> <span class="s2">&#34;Hello world</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="s2">&#34;Hello world</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">print</span> <span class="s2">&#34;Hello world</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="k">print</span> <span class="s2">&#34;Hello world</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>그리고 아래 명령을 실행한다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ php ../explain-master/explain.php . &gt; echo_vs_print.html
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ php ../explain-master/explain.php . &gt; echo_vs_print.html
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>실행을 하고 나면 <code>echo_vs_print.html</code> 파일이 생긴다. 브라우징에 필요한 자바스크립트 파일을 복사해온다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ cp -r ../explain-master/assets .
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ cp -r ../explain-master/assets .
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>웹브라우저로 <code>echo_vs_print.html</code> 파일을 열어보자.</p>
 <p><img src="/images/2013-11-13-explain-echo.png" alt="echo"></p>
@@ -345,7 +351,7 @@ $ make install
                 
                 <li class="copyright-item link"><span class="copyright-item-text">Link</span>: <a href="/php-%EB%82%B4%EB%B6%80-%EB%8F%99%EC%9E%91-%EB%93%A4%EC%97%AC%EB%8B%A4%EB%B3%B4%EA%B8%B0/" target="_blank" rel="noopener">https://sangheonhan.github.io/php-내부-동작-들여다보기/</a></li>
             
-            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></li>
             
         </ul>
     
@@ -358,9 +364,9 @@ $ make install
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2021-01-04 16:37:19 KST" style="cursor:help">
+        <span title="Updated @ 2022-04-20 10:08:56 KST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-01-04</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-01-04</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2022-04-20</text><text x="915" y="140" textLength="650" transform="scale(.1)">2022-04-20</text></g></svg>
         </span></div>
 
 
@@ -567,7 +573,7 @@ $ make install
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;2002–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2002–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></div>
 
             
     
@@ -604,7 +610,10 @@ $ make install
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

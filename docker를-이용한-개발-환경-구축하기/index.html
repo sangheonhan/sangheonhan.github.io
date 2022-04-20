@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.80.0" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.97.3" /><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -14,11 +17,11 @@
 
     <title>Docker를 이용한 개발 환경 구축하기 | Minimalist Programmer</title>
 
-    <link rel="stylesheet" href="/css/meme.min.83415e9a4151976a03f2ed2e276a8d26d44fdcfbadf36b92529df76f7f59950b.css"/>
+    <link rel="stylesheet" href="/css/meme.min.99200e7581abdaa67ab8ccf4bfdabb982faa3301563408d29cd247b36f5e6ce4.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.9a603f74f04a6c5cb5f7ef7e1f574bb6f2ca39f761e2c5caa7a52eb621f0415c.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js" defer></script><script src="/js/meme.min.5c97fc5f5dfddb132058d87423c74f4500cef886b951d8274d86a34fa1f204b0.js"></script>
 
     
 
@@ -54,7 +57,7 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2019-10-19T23:54:23+00:00",
-        "dateModified": "2021-01-04T16:53:12+09:00",
+        "dateModified": "2022-04-20T10:08:56+09:00",
         "url": "https://sangheonhan.github.io/docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/",
         "headline": "Docker를 이용한 개발 환경 구축하기",
         "description": "배경 여러 버전의 OS에서 돌아가는 여러 언어로 만든 시스템을 개발하려다 보니 개발 환경을 구축하는 것도 쉬운 일이 아닙니다. Vagrant도 사용을 해봤지만, 그렇게 획기적으로 편리하다는 인상은 못 받았습니다. 개발 환경을 배포하…",
@@ -70,7 +73,7 @@
             "url": "https://sangheonhan.github.io/",
             "name": "Sangheon Han"
         },
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "license": "[Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/)",
         "publisher": {
             "@type": "Organization",
             "name": "Minimalist Programmer",
@@ -105,11 +108,14 @@
 <meta property="og:locale" content="en" /><meta property="og:image" content="https://sangheonhan.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2019-10-19T23:54:23&#43;00:00" />
-    <meta property="article:modified_time" content="2021-01-04T16:53:12&#43;09:00" />
+    <meta property="article:modified_time" content="2022-04-20T10:08:56&#43;09:00" />
     
     <meta property="article:section" content="posts" />
 
 
+
+    
+    
 
     
 </head>
@@ -264,7 +270,7 @@
     <li><a id="contents:마무리" href="#마무리">마무리</a></li>
   </ol>
 </nav><div class="post-body e-content">
-              <h2 id="배경"><a href="#배경" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:배경" class="headings">배경</a></h2>
+                <h2 id="배경"><a href="#배경" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:배경" class="headings">배경</a></h2>
 <p style="text-indent:0"><span class="drop-cap">여</span>러 버전의 OS에서 돌아가는 여러 언어로 만든 시스템을 개발하려다 보니 개발 환경을 구축하는 것도 쉬운 일이 아닙니다. Vagrant도 사용을 해봤지만, 그렇게 획기적으로 편리하다는 인상은 못 받았습니다. 개발 환경을 배포하는 측면에서 좋았지만, 소규모 개발팀에서 배포를 위해 이미지를 빌드하는 과정이 오버헤드처럼 느껴졌습니다.</p>
 <p>그러던 차에 Docker를 이용해서 개발 환경을 구축하는 것이 편리하다는 것을 느끼고, 본격적으로 Docker를 통해서 개발 환경을 구축 해보았습니다.</p>
 <h2 id="제약-사항"><a href="#제약-사항" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:제약-사항" class="headings">제약 사항</a></h2>
@@ -289,7 +295,7 @@
 <p>Go와 같은 언어는 컴파일 과정이 필수적이지만, 실행을 할 때 Go의 빌드 환경이 필요하지는 않습니다. 실행 환경이 빌드 환경을 포함한다면 쓸데없이 컨테이너 크기만 커집니다. 이런 문제를 해결하기 위해 Mult-stage builds를 사용했습니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -308,24 +314,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">ARG</span> <span class="nv">GOLANG_DOCKER_IMAGE</span><span class="o">=</span>debian:stretch-slim<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> golang:1.12-stretch AS builder</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> . /go/src/github.com/sangheonhan/foobar/<span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /go/src/github.com/sangheonhan/foobar/</span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> go get <span class="s2">&#34;github.com/gorilla/mux&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span>    go build -o foobar main.go<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> ${GOLANG_DOCKER_IMAGE}</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder <span class="err">
-</span><span class="err"></span>    /go/src/github.com/sangheonhan/foobar/ <span class="err">
-</span><span class="err"></span>    /go/src/github.com/sangheonhan/foobar/<span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /go/src/github.com/sangheonhan/foobar/</span><span class="err">
-</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 80</span><span class="err">
-</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./foobar&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">ARG</span> <span class="nv">GOLANG_DOCKER_IMAGE</span><span class="o">=</span>debian:stretch-slim<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> golang:1.12-stretch AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /go/src/github.com/sangheonhan/foobar/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /go/src/github.com/sangheonhan/foobar/</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> go get <span class="s2">&#34;github.com/gorilla/mux&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    go build -o foobar main.go<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> ${GOLANG_DOCKER_IMAGE}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    /go/src/github.com/sangheonhan/foobar/ <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    /go/src/github.com/sangheonhan/foobar/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /go/src/github.com/sangheonhan/foobar/</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 80</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./foobar&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>GOLANG_DOCKER_IMAGE</code> 환경변수를 사용한 이유는 Production 환경에서는 Go 빌드 환경이 필요없기 때문에 debian 이미지를 사용하고, 개발 환경에서는 Docker Compose를 통해 이미지를 사용하도록 지정하여 실행시에도 Go 빌드 환경을 통한 디버깅이 용이하도록 했습니다.</p>
 <h3 id="ssh-key"><a href="#ssh-key" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:ssh-key" class="headings">SSH Key</a></h3>
@@ -333,7 +339,7 @@
 <p>다만 SSH Key를 Docker 설정에 포함 시키지 않고, 빌드 과정에서 시스템의 것을 가져오도록 만들었습니다. 이 때 한가지 문제가 있는데 외부의 SSH Key 문자열을 Docker에서 제대로 처리하지 못 한다는 점입니다. 이를 회피하기 위해서 Base64 인코딩을 하여 인자로 넣은 후, 다시 빌드 과정에서 디코딩을 하도록 했습니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -351,27 +357,27 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> python:3.7.4-slim-stretch</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">ARG</span> ssh_private_key_base64<span class="err">
-</span><span class="err"></span><span class="k">ARG</span> ssh_public_key_base64<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> . /usr/src/foobar/<span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/src/foobar/</span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> pip install --no-cache-dir -r requirements.txt <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span>mkdir -p /root/.ssh <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span>chmod <span class="m">0700</span> /root/.ssh <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span><span class="nb">echo</span> <span class="nv">$ssh_private_key_base64</span> <span class="p">|</span> base64 -d &gt; /root/.ssh/id_rsa <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span><span class="nb">echo</span> <span class="nv">$ssh_public_key_base64</span> <span class="p">|</span> base64 -d &gt; /root/.ssh/id_rsa.pub <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span>chmod <span class="m">600</span> /root/.ssh/id_rsa /root/.ssh/id_rsa.pub <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;Host 192.168.0.* foobar*\ntStrictHostKeyChecking no\nUser root\nPort 22\n&#34;</span> &gt;&gt; /root/.ssh/config<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span> <span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;./foobar.py&#34;</span> <span class="p">]</span><span class="err">
-</span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.7.4-slim-stretch</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> ssh_private_key_base64<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> ssh_public_key_base64<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /usr/src/foobar/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/src/foobar/</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --no-cache-dir -r requirements.txt <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>mkdir -p /root/.ssh <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>chmod <span class="m">0700</span> /root/.ssh <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">echo</span> <span class="nv">$ssh_private_key_base64</span> <span class="p">|</span> base64 -d &gt; /root/.ssh/id_rsa <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">echo</span> <span class="nv">$ssh_public_key_base64</span> <span class="p">|</span> base64 -d &gt; /root/.ssh/id_rsa.pub <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>chmod <span class="m">600</span> /root/.ssh/id_rsa /root/.ssh/id_rsa.pub <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;Host 192.168.0.* foobar*\ntStrictHostKeyChecking no\nUser root\nPort 22\n&#34;</span> &gt;&gt; /root/.ssh/config<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span> <span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;./foobar.py&#34;</span> <span class="p">]</span><span class="err">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -381,20 +387,20 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile">version: <span class="s2">&#34;3.3&#34;</span><span class="err">
-</span><span class="err"></span>services:<span class="err">
-</span><span class="err"></span>    foobar:<span class="err">
-</span><span class="err"></span>        build:<span class="err">
-</span><span class="err"></span>            context: .<span class="err">
-</span><span class="err"></span>            args:<span class="err">
-</span><span class="err"></span>                ssh_private_key_base64: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="p">:?Missing environment value - SSH private key</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
-</span><span class="err"></span>                ssh_public_key_base64: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="p">:?Missing environment value - SSH public key</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
-</span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl">version: <span class="s2">&#34;3.3&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>services:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    foobar:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>        build:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>            context: .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>            args:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>                ssh_private_key_base64: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="p">:?Missing environment value - SSH private key</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>                ssh_public_key_base64: <span class="s2">&#34;</span><span class="si">${</span><span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="p">:?Missing environment value - SSH public key</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>SSH_PRIVATE_KEY_BASE64</code>, <code>SSH_PUBLIC_KEY_BASE64</code> 환경 변수는 <code>.env</code> 파일을 통해서 자동으로 읽어 들이도록 했고, <code>.env</code> 파일은 스크립트를 사용해서 미리 빌드 해둘 수 있게 만들었습니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -435,53 +441,53 @@
 </span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#! /bin/bash
-</span><span class="cp"></span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;help&#34;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;-h&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Usage: mkenv [private key file] [public key file]&#34;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">SSH_PRIVATE_KEY_FILE</span><span class="o">=</span><span class="nv">$1</span>
-<span class="k">else</span>
-    <span class="nv">SSH_PRIVATE_KEY_FILE</span><span class="o">=</span>~/.ssh/id_rsa
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$2</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">SSH_PUBLIC_KEY_FILE</span><span class="o">=</span><span class="nv">$1</span>
-<span class="k">else</span>
-    <span class="nv">SSH_PUBLIC_KEY_FILE</span><span class="o">=</span>~/.ssh/id_rsa.pub
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[</span> ! -f <span class="nv">$SSH_PRIVATE_KEY_FILE</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="nv">$SSH_PRIVATE_KEY_FILE</span> is not found.
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="k">if</span> <span class="o">[</span> ! -f <span class="nv">$SSH_PUBLIC_KEY_FILE</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="nv">$SSH_PUBLIC_KEY_FILE</span> is not found.
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="nb">echo</span> Private <span class="nv">key</span> <span class="o">=</span> <span class="nv">$SSH_PRIVATE_KEY_FILE</span>
-<span class="nb">echo</span> Public <span class="nv">key</span> <span class="o">=</span> <span class="nv">$SSH_PUBLIC_KEY_FILE</span>
-
-<span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="o">=</span><span class="sb">`</span>cat <span class="si">${</span><span class="nv">SSH_PRIVATE_KEY_FILE</span><span class="si">}</span> <span class="p">|</span> base64 <span class="p">|</span> paste -s -d <span class="s1">&#39;&#39;</span><span class="sb">`</span>
-<span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="o">=</span><span class="sb">`</span>cat <span class="si">${</span><span class="nv">SSH_PUBLIC_KEY_FILE</span><span class="si">}</span> <span class="p">|</span> base64 <span class="p">|</span> paste -s -d <span class="s1">&#39;&#39;</span><span class="sb">`</span>
-
-<span class="nb">echo</span> <span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="o">=</span><span class="si">${</span><span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="si">}</span> &gt; .env
-<span class="nb">echo</span> <span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="o">=</span><span class="si">${</span><span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="si">}</span> &gt;&gt; .env
-
-<span class="nb">echo</span> Done.
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#! /bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;help&#34;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;-h&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Usage: mkenv [private key file] [public key file]&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SSH_PRIVATE_KEY_FILE</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SSH_PRIVATE_KEY_FILE</span><span class="o">=</span>~/.ssh/id_rsa
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$2</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SSH_PUBLIC_KEY_FILE</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SSH_PUBLIC_KEY_FILE</span><span class="o">=</span>~/.ssh/id_rsa.pub
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="nv">$SSH_PRIVATE_KEY_FILE</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="nv">$SSH_PRIVATE_KEY_FILE</span> is not found.
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="nv">$SSH_PUBLIC_KEY_FILE</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="nv">$SSH_PUBLIC_KEY_FILE</span> is not found.
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Private <span class="nv">key</span> <span class="o">=</span> <span class="nv">$SSH_PRIVATE_KEY_FILE</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Public <span class="nv">key</span> <span class="o">=</span> <span class="nv">$SSH_PUBLIC_KEY_FILE</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="o">=</span><span class="sb">`</span>cat <span class="si">${</span><span class="nv">SSH_PRIVATE_KEY_FILE</span><span class="si">}</span> <span class="p">|</span> base64 <span class="p">|</span> paste -s -d <span class="s1">&#39;&#39;</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="o">=</span><span class="sb">`</span>cat <span class="si">${</span><span class="nv">SSH_PUBLIC_KEY_FILE</span><span class="si">}</span> <span class="p">|</span> base64 <span class="p">|</span> paste -s -d <span class="s1">&#39;&#39;</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="o">=</span><span class="si">${</span><span class="nv">SSH_PRIVATE_KEY_BASE64</span><span class="si">}</span> &gt; .env
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="o">=</span><span class="si">${</span><span class="nv">SSH_PUBLIC_KEY_BASE64</span><span class="si">}</span> &gt;&gt; .env
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Done.
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>위 스크립트를 통해서 Base64로 인코딩 한 값을 <code>.env</code> 파일에 생성 할 수 있습니다. <code>.env</code>는 Docker Compose에서 자동으로 읽어서 적용하므로 <code>docker-compose.yml</code>과 <code>Dockefile</code>에서 해당 값을 사용 할 수 있습니다.</p>
 <h3 id="ubuntu-repository"><a href="#ubuntu-repository" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:ubuntu-repository" class="headings">Ubuntu Repository</a></h3>
 <p>Docker가 아닌 환경에서도 간혹 격는 문제인데 Md5sum 값이 다르다면서 패키지 저장소를 업데이트 하는 과정에 오류가 발생하는 경우가 있습니다. 이번 개발 환경 구축 시에도 동일한 문제를 겪었고, <code>Dockerfile</code>에 저장소 주소를 초기화 하는 방법으로 해당 문제를 해결했습니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -489,13 +495,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">RUN</span> rm -rf /etc/apt/sources.list <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb-src mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-backports main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-security main restricted universe multiverse&#34;</span><span class="o">)</span> &gt; /etc/apt/sources.list <span class="o">&amp;&amp;</span> <span class="err">
-</span><span class="err"></span>rm -rf /var/lib/apt/lists/* <span class="o">&amp;&amp;</span> apt clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y libsm6 libxext6 libxrender-dev<span class="err">
-</span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> rm -rf /etc/apt/sources.list <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb-src mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-backports main restricted universe multiverse&#34;</span> <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">echo</span> <span class="s2">&#34;deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-security main restricted universe multiverse&#34;</span><span class="o">)</span> &gt; /etc/apt/sources.list <span class="o">&amp;&amp;</span> <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>rm -rf /var/lib/apt/lists/* <span class="o">&amp;&amp;</span> apt clean <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y libsm6 libxext6 libxrender-dev<span class="err">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>컨테이너 이미지 안의 패키지 저장소 주소를 초기화 시키고, 우분투 서버의 미러 사이트 주소를 가져와서 동작하도록 합니다. 이렇게 처리를 하면 지역이 바뀌거나 미러 사이트 주소에 변화가 생겨도 대응이 되기 때문에 소스 코드 트리에 넣기에 부담이 줄어듭니다.</p>
 <h2 id="docker-composeyml"><a href="#docker-composeyml" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:docker-composeyml" class="headings">docker-compose.yml</a></h2>
@@ -509,44 +515,44 @@
 <p>첫번째 방법은 <code>docker-compose.yml</code>에 공통적인 설정을 넣고, 환경에 따라 <code>docker-compose.development.yml</code>, <code>docker-compose.qa.yml</code>, <code>docker-compose.stage.yml</code>, <code>docker-compose.production.yml</code>을 만들어서 실행 시 명령행 인자를 통해서 적절한 파일을 사용하는 방법입니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 개발 환경</span>
-$ docker-compose -f docker-compose.yml -f docker-compose.development.yml
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 개발 환경</span>
+</span></span><span class="line"><span class="cl">$ docker-compose -f docker-compose.yml -f docker-compose.development.yml
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 운영 환경</span>
-$ docker-compose -f docker-compose.yml -f docker-compose.production.yml
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 운영 환경</span>
+</span></span><span class="line"><span class="cl">$ docker-compose -f docker-compose.yml -f docker-compose.production.yml
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>두번째 방법은 첫번째와 동일하게 환경에 따라 파일은 나누되 명령행 인자로 지정하는 것이 아니라 <code>docker-compose.override.yml</code> 파일로 심볼릭 링크를 하는 방법입니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 개발 환경</span>
-$ ln -s docker-compose.development.yml docker-compose.override.yml
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 개발 환경</span>
+</span></span><span class="line"><span class="cl">$ ln -s docker-compose.development.yml docker-compose.override.yml
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 운영 환경</span>
-$ ln -s docker-compose.production.yml docker-compose.override.yml
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 운영 환경</span>
+</span></span><span class="line"><span class="cl">$ ln -s docker-compose.production.yml docker-compose.override.yml
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>Docker Compose를 <code>docker-compose.yml</code>을 읽은 후 <code>docker-compose.override.yml</code>을 추가적으로 읽습니다.</p>
 <p>여기서 환경 별로 구축을 할 때 주의해야 할 점이 있습니다. <code>docker-compose.yml</code>에서 한 설정을 덮어 쓰거나 새로운 설정을 추가하는 것은 가능하지만, 지우는 기능은 없으므로, 만약 특정 환경에서는 필요하지 않는 어떤 설정이 있다면 절대로 <code>docker-compose.yml</code>에 넣으면 안 됩니다. 번거롭더라도 해당 환경을 특정 환경을 제외한 나머지 환경을 위한 설정 파일에 모두 해당 내용을 추가해야 합니다.</p>
@@ -556,7 +562,7 @@ $ ln -s docker-compose.production.yml docker-compose.override.yml
 <p><code>Dockerfile</code>이 있는 프로젝트 루트에 <code>.devcontainer</code> 디렉토리를 생성하고, 그 안에 <code>devcontainer.json</code>과 <code>docker-compose.extend.yml</code> 파일을 생성합니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -585,58 +591,58 @@ $ ln -s docker-compose.production.yml docker-compose.override.yml
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="err">//</span> <span class="err">See</span> <span class="err">https://aka.ms/vscode-remote/devcontainer.json</span> <span class="err">for</span> <span class="err">format</span> <span class="err">details.</span>
-    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Foobar&#34;</span><span class="p">,</span>
-    <span class="err">//</span> <span class="err">Update</span> <span class="err">the</span> <span class="err">&#39;dockerComposeFile&#39;</span> <span class="err">list</span> <span class="err">if</span> <span class="err">you</span> <span class="err">have</span> <span class="err">more</span> <span class="err">compose</span> <span class="err">files</span> <span class="err">or</span> <span class="err">use</span> <span class="err">different</span> <span class="err">names.</span>
-    <span class="err">//</span> <span class="err">The</span> <span class="err">.devcontainer/docker-compose.yml</span> <span class="err">file</span> <span class="err">contains</span> <span class="err">any</span> <span class="err">overrides</span> <span class="err">you</span> <span class="err">need/want</span> <span class="err">to</span> <span class="err">make.</span>
-    <span class="nt">&#34;dockerComposeFile&#34;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&#34;../../docker-compose.yml&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;../../docker-compose.override.yml&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;./docker-compose.extend.yml&#34;</span>
-    <span class="p">],</span>
-    <span class="err">//</span> <span class="err">The</span> <span class="err">&#39;service&#39;</span> <span class="err">property</span> <span class="err">is</span> <span class="err">the</span> <span class="err">name</span> <span class="err">of</span> <span class="err">the</span> <span class="err">service</span> <span class="err">for</span> <span class="err">the</span> <span class="err">container</span> <span class="err">that</span> <span class="err">VS</span> <span class="err">Code</span> <span class="err">should</span>
-    <span class="err">//</span> <span class="err">use.</span> <span class="err">Update</span> <span class="err">this</span> <span class="err">value</span> <span class="err">and</span> <span class="err">.devcontainer/docker-compose.yml</span> <span class="err">to</span> <span class="err">the</span> <span class="err">real</span> <span class="err">service</span> <span class="err">name.</span>
-    <span class="nt">&#34;service&#34;</span><span class="p">:</span> <span class="s2">&#34;foobar&#34;</span><span class="p">,</span>
-    <span class="err">//</span> <span class="err">The</span> <span class="err">optional</span> <span class="err">&#39;workspaceFolder&#39;</span> <span class="err">property</span> <span class="err">is</span> <span class="err">the</span> <span class="err">path</span> <span class="err">VS</span> <span class="err">Code</span> <span class="err">should</span> <span class="err">open</span> <span class="err">by</span> <span class="err">default</span> <span class="err">when</span>
-    <span class="err">//</span> <span class="err">connected.</span> <span class="err">This</span> <span class="err">is</span> <span class="err">typically</span> <span class="err">a</span> <span class="err">file</span> <span class="err">mount</span> <span class="err">in</span> <span class="err">.devcontainer/docker-compose.yml</span>
-    <span class="nt">&#34;workspaceFolder&#34;</span><span class="p">:</span> <span class="s2">&#34;/usr/src/foobar/&#34;</span><span class="p">,</span>
-    <span class="err">//</span> <span class="err">Uncomment</span> <span class="err">the</span> <span class="err">next</span> <span class="err">line</span> <span class="err">if</span> <span class="err">you</span> <span class="err">want</span> <span class="err">to</span> <span class="err">keep</span> <span class="err">your</span> <span class="err">containers</span> <span class="err">running</span> <span class="err">after</span> <span class="err">VS</span> <span class="err">Code</span> <span class="err">shuts</span> <span class="err">down.</span>
-    <span class="err">//</span> <span class="nt">&#34;shutdownAction&#34;</span><span class="p">:</span> <span class="s2">&#34;none&#34;</span><span class="p">,</span>
-    <span class="err">//</span> <span class="err">Uncomment</span> <span class="err">the</span> <span class="err">next</span> <span class="err">line</span> <span class="err">if</span> <span class="err">you</span> <span class="err">want</span> <span class="err">to</span> <span class="err">add</span> <span class="err">in</span> <span class="err">default</span> <span class="err">container</span> <span class="err">specific</span> <span class="err">settings.json</span> <span class="err">values</span>
-    <span class="err">//</span> <span class="nt">&#34;settings&#34;</span><span class="p">:</span>  <span class="p">{</span> <span class="nt">&#34;workbench.colorTheme&#34;</span><span class="p">:</span> <span class="s2">&#34;Quiet Light&#34;</span> <span class="p">},</span>
-    <span class="err">//</span> <span class="err">Uncomment</span> <span class="err">the</span> <span class="err">next</span> <span class="err">line</span> <span class="err">to</span> <span class="err">run</span> <span class="err">commands</span> <span class="err">after</span> <span class="err">the</span> <span class="err">container</span> <span class="err">is</span> <span class="err">created</span> <span class="err">-</span> <span class="err">for</span> <span class="err">example</span> <span class="err">installing</span> <span class="err">git.</span>
-    <span class="nt">&#34;postCreateCommand&#34;</span><span class="p">:</span> <span class="s2">&#34;apt-get update &amp;&amp; apt-get install -y git &amp;&amp; pip install pylint black rope&#34;</span><span class="p">,</span>
-    <span class="err">//</span> <span class="err">Add</span> <span class="err">the</span> <span class="err">IDs</span> <span class="err">of</span> <span class="err">any</span> <span class="err">extensions</span> <span class="err">you</span> <span class="err">want</span> <span class="err">installed</span> <span class="err">in</span> <span class="err">the</span> <span class="err">array</span> <span class="err">below.</span>
-    <span class="nt">&#34;extensions&#34;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&#34;ms-python.python&#34;</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Foobar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Update the &#39;dockerComposeFile&#39; list if you have more compose files or use different names.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;dockerComposeFile&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;../../docker-compose.yml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;../../docker-compose.override.yml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;./docker-compose.extend.yml&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// The &#39;service&#39; property is the name of the service for the container that VS Code should
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;service&#34;</span><span class="p">:</span> <span class="s2">&#34;foobar&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// The optional &#39;workspaceFolder&#39; property is the path VS Code should open by default when
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;workspaceFolder&#34;</span><span class="p">:</span> <span class="s2">&#34;/usr/src/foobar/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// &#34;shutdownAction&#34;: &#34;none&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Uncomment the next line if you want to add in default container specific settings.json values
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// &#34;settings&#34;:  { &#34;workbench.colorTheme&#34;: &#34;Quiet Light&#34; },
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Uncomment the next line to run commands after the container is created - for example installing git.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;postCreateCommand&#34;</span><span class="p">:</span> <span class="s2">&#34;apt-get update &amp;&amp; apt-get install -y git &amp;&amp; pip install pylint black rope&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Add the IDs of any extensions you want installed in the array below.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;extensions&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ms-python.python&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>dockerComposeFile</code> 설정에서 나온 순서대로 설정 파일을 읽습니다. <code>service</code> 설정은 꼭 <code>docker-compose.yml</code>와 이름이 같도록 해야 합니다.</p>
 <p>VS Code를 이용 할 때 IDE 기능이 로컬 머신이 아닌 컨테이너 내부에서 동작하므로, 개발에 필요한 도구들도 설치하도록 해야 합니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;postCreateCommand&#34;</span><span class="err">:</span> <span class="s2">&#34;apt-get update &amp;&amp; apt-get install -y git &amp;&amp; pip install pylint black rope&#34;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;postCreateCommand&#34;</span><span class="err">:</span> <span class="s2">&#34;apt-get update &amp;&amp; apt-get install -y git &amp;&amp; pip install pylint black rope&#34;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>아울러 VS Code의 확장 또한 컨테이너 내부에서 실행하므로, 이미 로컬 머신에 해당 확장을 설치했다고 하여도 컨테이너에 설치하도록 하는 설정을 추가해줘야 합니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;extensions&#34;</span><span class="err">:</span> <span class="p">[</span><span class="s2">&#34;ms-python.python&#34;</span><span class="p">]</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;extensions&#34;</span><span class="err">:</span> <span class="p">[</span><span class="s2">&#34;ms-python.python&#34;</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>docker-compose.extend.yml</code>에는 VS Code로 개발 할 때만 필요한 Docker Compose 설정을 적습니다.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -646,15 +652,15 @@ $ ln -s docker-compose.production.yml docker-compose.override.yml
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.3&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">foobar</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="nt">cap_add</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">SYS_PTRACE</span><span class="w">
-</span><span class="w">        </span><span class="nt">security_opt</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- <span class="l">seccomp:unconfined</span><span class="w">
-</span><span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">sleep infinity</span><span class="w">
-</span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">foobar</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">cap_add</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">SYS_PTRACE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">security_opt</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">seccomp:unconfined</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">sleep infinity</span><span class="w">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>cap_add</code>와 <code>security_opt</code> 설정은 디버깅을 위한 권한을 부여하기 위한 것입니다. <code>command</code>는 컨테이너 실행(run) 시 프로그램을 실행하지 않도록 하여, 개발자가 원할 때 실행 할 수 있도록 하기 위한 설정입니다.</p>
 <p>설정 후 해당 프로젝트 폴더를 <code>Remote-Containers: Open Folder in Container</code>로 열면 됩니다. 만약 <code>Dockerfile</code>이 있는 프로젝트 루트를 그냥 <code>폴더 열기</code>로 열면 우측 하단에 컨테이너로 열지 물어보는데, <code>Reopen in Container</code> 버튼을 눌러 컨테이너로 여는 것도 가능합니다.</p>
@@ -676,7 +682,7 @@ $ ln -s docker-compose.production.yml docker-compose.override.yml
                 
                 <li class="copyright-item link"><span class="copyright-item-text">Link</span>: <a href="/docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/" target="_blank" rel="noopener">https://sangheonhan.github.io/docker를-이용한-개발-환경-구축하기/</a></li>
             
-            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></li>
             
         </ul>
     
@@ -689,9 +695,9 @@ $ ln -s docker-compose.production.yml docker-compose.override.yml
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2021-01-04 16:53:12 KST" style="cursor:help">
+        <span title="Updated @ 2022-04-20 10:08:56 KST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-01-04</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-01-04</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2022-04-20</text><text x="915" y="140" textLength="650" transform="scale(.1)">2022-04-20</text></g></svg>
         </span></div>
 
 
@@ -871,7 +877,7 @@ $ ln -s docker-compose.production.yml docker-compose.override.yml
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;2002–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2002–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Sangheon Han</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0</a></div>
 
             
     
@@ -908,7 +914,10 @@ $ ln -s docker-compose.production.yml docker-compose.override.yml
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>
