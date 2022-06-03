@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Python on Minimalist Programmer</title>
+    <link>https://sangheonhan.github.io/tags/python/</link>
+    <description>Recent content in Python on Minimalist Programmer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 18 Apr 2017 11:54:32 +0000</lastBuildDate><atom:link href="https://sangheonhan.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>파이썬 문자열에서 기호 없애는 법</title>
+      <link>https://sangheonhan.github.io/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%9E%90%EC%97%B4%EC%97%90%EC%84%9C-%EA%B8%B0%ED%98%B8-%EC%97%86%EC%95%A0%EB%8A%94-%EB%B2%95/</link>
+      <pubDate>Tue, 18 Apr 2017 11:54:32 +0000</pubDate>
+      
+      <guid>https://sangheonhan.github.io/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AC%B8%EC%9E%90%EC%97%B4%EC%97%90%EC%84%9C-%EA%B8%B0%ED%98%B8-%EC%97%86%EC%95%A0%EB%8A%94-%EB%B2%95/</guid>
+      <description>1 2 3 4 5 6 7 # coding=utf-8 import re r = re.compile(r&amp;#39;[^\sa-zA-Z0-9ㄱ-ㅣ가-힣]+&amp;#39;) s = &amp;#39;대법원장의 임</description>
+    </item>
+    
+  </channel>
+</rss>

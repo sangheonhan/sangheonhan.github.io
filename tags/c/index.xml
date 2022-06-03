@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C on Minimalist Programmer</title>
+    <link>https://sangheonhan.github.io/tags/c/</link>
+    <description>Recent content in C on Minimalist Programmer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 08 Oct 2013 11:20:55 +0000</lastBuildDate><atom:link href="https://sangheonhan.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C 언어 헤더 파일 간 의존 관계 빌드하기</title>
+      <link>https://sangheonhan.github.io/c-%EC%96%B8%EC%96%B4-%ED%97%A4%EB%8D%94-%ED%8C%8C%EC%9D%BC-%EA%B0%84-%EC%9D%98%EC%A1%B4-%EA%B4%80%EA%B3%84-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Tue, 08 Oct 2013 11:20:55 +0000</pubDate>
+      
+      <guid>https://sangheonhan.github.io/c-%EC%96%B8%EC%96%B4-%ED%97%A4%EB%8D%94-%ED%8C%8C%EC%9D%BC-%EA%B0%84-%EC%9D%98%EC%A1%B4-%EA%B4%80%EA%B3%84-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0/</guid>
+      <description>C 언어로 개발하다 보면 헤더 파일들끼리 의존성이 생겨나는데, 그 수가 적을 때는 수동으로 Makefile에 적어도 되지만 많아질 경우 수동으로 하기는 곤란해진다</description>
+    </item>
+    
+    <item>
+      <title>멀티 프로세스끼리 간단한 데이터 공유 방법 – mmap()</title>
+      <link>https://sangheonhan.github.io/%EB%A9%80%ED%8B%B0-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EB%81%BC%EB%A6%AC-%EA%B0%84%EB%8B%A8%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B3%B5%EC%9C%A0-%EB%B0%A9%EB%B2%95-mmap/</link>
+      <pubDate>Sun, 23 Sep 2012 23:25:53 +0000</pubDate>
+      
+      <guid>https://sangheonhan.github.io/%EB%A9%80%ED%8B%B0-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EB%81%BC%EB%A6%AC-%EA%B0%84%EB%8B%A8%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B3%B5%EC%9C%A0-%EB%B0%A9%EB%B2%95-mmap/</guid>
+      <description>멀티 프로세스끼리는 멀티쓰레드처럼 직접 변수에 접근하기 어렵기 때문에 공유 메모리 등과 같은 IPC를 이용해서 데이터를 주고 받는데, 복잡하고 다양한 기능이 필요</description>
+    </item>
+    
+    <item>
+      <title>멀티프로세스 데몬에서 락킹(Locking)하기</title>
+      <link>https://sangheonhan.github.io/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%8D%B0%EB%AA%AC%EC%97%90%EC%84%9C-%EB%9D%BD%ED%82%B9locking%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Fri, 21 Sep 2012 21:10:09 +0000</pubDate>
+      
+      <guid>https://sangheonhan.github.io/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%8D%B0%EB%AA%AC%EC%97%90%EC%84%9C-%EB%9D%BD%ED%82%B9locking%ED%95%98%EA%B8%B0/</guid>
+      <description>pthread를 사용하는 멀티쓰레드 데몬이라면 pthread_mutex_lock()을 사용해 잠금을 할 것이며, 멀티프로세스 데몬이라면 세마포어를</description>
+    </item>
+    
+  </channel>
+</rss>
