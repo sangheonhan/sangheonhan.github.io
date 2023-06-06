@@ -5,7 +5,26 @@
     <link>https://sangheonhan.github.io/tags/</link>
     <description>Recent content in Tags on Minimalist Programmer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Jan 2021 14:12:00 +0900</lastBuildDate><atom:link href="https://sangheonhan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko</language>
+    <lastBuildDate>Wed, 07 Jun 2023 02:10:00 +0900</lastBuildDate><atom:link href="https://sangheonhan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS</title>
+      <link>https://sangheonhan.github.io/tags/macos/</link>
+      <pubDate>Wed, 07 Jun 2023 02:10:00 +0900</pubDate>
+      
+      <guid>https://sangheonhan.github.io/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://sangheonhan.github.io/tags/network/</link>
+      <pubDate>Wed, 07 Jun 2023 02:10:00 +0900</pubDate>
+      
+      <guid>https://sangheonhan.github.io/tags/network/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>iOS</title>
       <link>https://sangheonhan.github.io/tags/ios/</link>

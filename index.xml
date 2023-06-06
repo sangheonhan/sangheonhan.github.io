@@ -5,7 +5,17 @@
     <link>https://sangheonhan.github.io/</link>
     <description>Recent content on Minimalist Programmer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Jan 2021 14:12:00 +0900</lastBuildDate><atom:link href="https://sangheonhan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko</language>
+    <lastBuildDate>Wed, 07 Jun 2023 02:10:00 +0900</lastBuildDate><atom:link href="https://sangheonhan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacOS: 특정 IP에서만 SSH 접속을 허용하는 방법</title>
+      <link>https://sangheonhan.github.io/macos-%ED%8A%B9%EC%A0%95-ip%EC%97%90%EC%84%9C%EB%A7%8C-ssh-%EC%A0%91%EC%86%8D%EC%9D%84-%ED%97%88%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</link>
+      <pubDate>Wed, 07 Jun 2023 02:10:00 +0900</pubDate>
+      
+      <guid>https://sangheonhan.github.io/macos-%ED%8A%B9%EC%A0%95-ip%EC%97%90%EC%84%9C%EB%A7%8C-ssh-%EC%A0%91%EC%86%8D%EC%9D%84-%ED%97%88%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</guid>
+      <description>macOS에서 특정 IP만 ssh 연결을 허용하기 위해서는 방화벽이 아닌 sshd 설정을 통해 접근을 허용해야 합니다. /etc/ssh/sshd_config.d/ 디렉토리 안에 적절한 파일(여기서는 900-al</description>
+    </item>
+    
     <item>
       <title>유니버설 링크 (Universal Links)</title>
       <link>https://sangheonhan.github.io/%EC%9C%A0%EB%8B%88%EB%B2%84%EC%84%A4-%EB%A7%81%ED%81%AC-universal-links/</link>
