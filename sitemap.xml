@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sangheonhan.github.io/tags/application/</loc>
+    <lastmod>2023-06-14T03:32:00+09:00</lastmod>
+  </url><url>
+    <loc>https://sangheonhan.github.io/gnome-terminal%EC%97%90%EC%84%9C-powerline-%ED%8F%B0%ED%8A%B8-%EA%B9%A8%EC%A7%90-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</loc>
+    <lastmod>2023-06-14T03:32:00+09:00</lastmod>
+  </url><url>
+    <loc>https://sangheonhan.github.io/tags/linux/</loc>
+    <lastmod>2023-06-14T03:32:00+09:00</lastmod>
+  </url><url>
+    <loc>https://sangheonhan.github.io/</loc>
+    <lastmod>2023-06-14T03:32:00+09:00</lastmod>
+  </url><url>
+    <loc>https://sangheonhan.github.io/posts/</loc>
+    <lastmod>2023-06-14T03:32:00+09:00</lastmod>
+  </url><url>
+    <loc>https://sangheonhan.github.io/tags/</loc>
+    <lastmod>2023-06-14T03:32:00+09:00</lastmod>
+  </url><url>
+    <loc>https://sangheonhan.github.io/tags/ubuntu/</loc>
+    <lastmod>2023-06-14T03:32:00+09:00</lastmod>
+  </url><url>
     <loc>https://sangheonhan.github.io/tags/macos/</loc>
     <lastmod>2023-06-07T02:10:00+09:00</lastmod>
   </url><url>
     <loc>https://sangheonhan.github.io/macos-%ED%8A%B9%EC%A0%95-ip%EC%97%90%EC%84%9C%EB%A7%8C-ssh-%EC%A0%91%EC%86%8D%EC%9D%84-%ED%97%88%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</loc>
     <lastmod>2023-06-07T02:10:00+09:00</lastmod>
   </url><url>
-    <loc>https://sangheonhan.github.io/</loc>
-    <lastmod>2023-06-07T02:10:00+09:00</lastmod>
-  </url><url>
     <loc>https://sangheonhan.github.io/tags/network/</loc>
-    <lastmod>2023-06-07T02:10:00+09:00</lastmod>
-  </url><url>
-    <loc>https://sangheonhan.github.io/posts/</loc>
-    <lastmod>2023-06-07T02:10:00+09:00</lastmod>
-  </url><url>
-    <loc>https://sangheonhan.github.io/tags/</loc>
     <lastmod>2023-06-07T02:10:00+09:00</lastmod>
   </url><url>
     <loc>https://sangheonhan.github.io/tags/ios/</loc>
@@ -41,9 +53,6 @@
     <loc>https://sangheonhan.github.io/docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2019-10-19T23:54:23+00:00</lastmod>
   </url><url>
-    <loc>https://sangheonhan.github.io/tags/linux/</loc>
-    <lastmod>2019-10-19T23:54:23+00:00</lastmod>
-  </url><url>
     <loc>https://sangheonhan.github.io/tags/php/</loc>
     <lastmod>2019-01-08T11:00:26+00:00</lastmod>
   </url><url>
@@ -61,9 +70,6 @@
   </url><url>
     <loc>https://sangheonhan.github.io/pear-console_commandline/</loc>
     <lastmod>2015-04-27T22:19:29+00:00</lastmod>
-  </url><url>
-    <loc>https://sangheonhan.github.io/tags/ubuntu/</loc>
-    <lastmod>2015-04-26T22:00:02+00:00</lastmod>
   </url><url>
     <loc>https://sangheonhan.github.io/%EC%9A%B0%EB%B6%84%ED%88%AC-%EC%BB%A4%EB%84%90-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%ED%9B%84-virtualbox-%EC%8B%A4%ED%96%89-%EC%98%A4%EB%A5%98/</loc>
     <lastmod>2015-04-26T22:00:02+00:00</lastmod>

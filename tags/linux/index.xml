@@ -6,7 +6,16 @@
     <description>Recent content in Linux on Minimalist Programmer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sat, 19 Oct 2019 23:54:23 +0000</lastBuildDate><atom:link href="https://sangheonhan.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Jun 2023 03:32:00 +0900</lastBuildDate><atom:link href="https://sangheonhan.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gnome Terminal에서 Powerline 폰트 깨짐 현상 해결하기</title>
+      <link>https://sangheonhan.github.io/gnome-terminal%EC%97%90%EC%84%9C-powerline-%ED%8F%B0%ED%8A%B8-%EA%B9%A8%EC%A7%90-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Wed, 14 Jun 2023 03:32:00 +0900</pubDate>
+      
+      <guid>https://sangheonhan.github.io/gnome-terminal%EC%97%90%EC%84%9C-powerline-%ED%8F%B0%ED%8A%B8-%EA%B9%A8%EC%A7%90-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</guid>
+      <description>언제부터인지 Ubuntu 업그레이드 이후 Gnome Terminal에서 Powerline 폰트가 이상하게 나오는 문제를 발견했습니다. 폰트의 높이가 위아래로 늘어나는 현상인데, 이로 인해 폰</description>
+    </item>
+    
     <item>
       <title>Docker를 이용한 개발 환경 구축하기</title>
       <link>https://sangheonhan.github.io/docker%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</link>
